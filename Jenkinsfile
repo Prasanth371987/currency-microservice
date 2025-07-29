@@ -13,8 +13,7 @@ pipeline {
         }
 
         stages {
-            stage ('Firststage')
-            {
+            stage ('Firststage') {
                 steps {
                     echo "Welcome ${name}"
                     echo "You enrolled to ${course}"
@@ -22,4 +21,3 @@ pipeline {
             }
         }
     }
-
