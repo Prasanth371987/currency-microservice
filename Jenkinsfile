@@ -35,7 +35,7 @@ pipeline {
         stage ('Prodenv')
         {
             steps {
-                echo "Deploying Prod"
+                echo "Deploying Prod not triggered"
             }
         }
     }
