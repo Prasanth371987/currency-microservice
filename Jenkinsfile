@@ -1,5 +1,5 @@
 pipeline {
-    agent any {
+    agent any 
         //
 
         //environment can be configured as pipeline level or stage level
