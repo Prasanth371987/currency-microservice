@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage ('Build') {
             steps {
-            echo "Multi branch pipeline for testing branch"
+            echo "Multi branch pipeline for no jenkins file branch"
                 
                 }
                
