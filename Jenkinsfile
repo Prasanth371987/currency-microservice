@@ -32,5 +32,11 @@ pipeline {
                 echo "Performing sonarstageenv scans"
             }
         }
+        stage ('Prodenv')
+        {
+            steps {
+                echo "Deploying Prod"
+            }
+        }
     }
 }
