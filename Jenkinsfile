@@ -13,7 +13,7 @@ pipeline
 
             when {
 
-                environment name: 'TODAYS_DAY', value: 'wednesd'
+                environment name: 'TODAYS_DAY', value: 'wednesday'
             }
             steps {
                 echo "executing pipeline for when example"
