@@ -16,6 +16,7 @@ pipeline {
             stage ('Firststage') {
                 environment {
                     cloud = "GCP"
+                     name = "Mahesh"
                 }
                 steps {
                     echo "Welcome ${name}"
