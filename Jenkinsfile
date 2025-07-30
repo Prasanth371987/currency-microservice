@@ -13,7 +13,7 @@ pipeline {
             when {
                 allOf {
                     branch 'main'
-                    environment name: 'ProdDeploy', value: 'Production'
+                    environment name: 'Proddeploy', value: 'Production'
                 }
             }
 
