@@ -11,8 +11,10 @@ pipeline {
         stage ('ProdDeploy')
         {
             when {
-                allOf {
-                    branch 'main'
+                anyOf {
+
+                    //anyofbelow condition is satisfied it will pass 
+                    branch 'production' 
                     environment name: 'Proddeploy', value: 'Production'
                 }
             }
