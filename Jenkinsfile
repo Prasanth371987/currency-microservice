@@ -4,7 +4,7 @@ pipeline {
     agent
 
     environment {
-        ProdDeploy = 'Production'
+        Proddeploy = 'Production'
     }
 
     stages {
@@ -15,6 +15,11 @@ pipeline {
                     branch 'main'
                     environment name: 'ProdDeploy', value: 'Production'
                 }
+            }
+
+            steps {
+
+                echo "************ Deploying to Production *************"
             }
         }
     }
