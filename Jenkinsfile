@@ -1,7 +1,7 @@
 //class 30
 
 pipeline {
-    agent
+    agent any
 
     environment {
         Proddeploy = 'Production'
