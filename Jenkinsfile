@@ -14,9 +14,20 @@ pipeline {
 
         stages {
             stage ('Firststage') {
+                environment {
+                    cloud = "GCP"
+                }
                 steps {
                     echo "Welcome ${name}"
                     echo "You enrolled to ${course}"
+                }
+            }
+
+            stage ('secondstage') {
+                steps {
+                    echo "Secondstage : Welcome ${name}"
+                    echo "Secondstage : You enrolled to ${course}"
+                    echo "Secondatge : You are certified in ${cloud}"
                 }
             }
         }
