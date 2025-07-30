@@ -10,6 +10,10 @@ pipeline
             when {
                 expression { BRANCH_NAME ==~ /(prod|main)/ }
             }
+
+            steps {
+                echo "Executing pipeline with when example"
+            }
         }
     }
 
