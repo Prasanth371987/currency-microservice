@@ -1,20 +1,21 @@
 //class 30
 
-pipeline
- {
-    agent any
+pipeline {
+    agent
+
+    environment {
+        ProdDeploy = 'Production'
+    }
 
     stages {
-        stage('build stage') {
-
+        stage ('ProdDeploy')
+        {
             when {
-                expression { BRANCH_NAME ==~ /(prod|main)/ }
-            }
-
-            steps {
-                echo "Executing pipeline with when example"
+                allOf {
+                    branch 'main'
+                    environment name: 'ProdDeploy', value: 'Production'
+                }
             }
         }
     }
-
- }
+}
