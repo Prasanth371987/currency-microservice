@@ -1,35 +1,23 @@
-pipeline {
-    agent any 
-        //
+pipeline
+ {
+    agent any
 
-        //environment can be configured as pipeline level or stage level
+    //environment variables
 
-        environment {
+    environment {
+        TODAYS_DAY = 'wednesday'
+    }
 
-            //key =value ${key}
+    stages {
+        stage('build stage') {
 
-            name = "Prasanth"
-            course = "Devops engineer program"
-        }
+            when {
 
-        stages {
-            stage ('Firststage') {
-                environment {
-                    cloud = "GCP"
-                     name = "Mahesh"
-                }
-                steps {
-                    echo "Welcome ${name}"
-                    echo "You enrolled to ${course}"
-                }
+                environment name: 'TODAYS_DAY', value: 'wednesday'
             }
-
-            stage ('secondstage') {
-                steps {
-                    echo "Secondstage : Welcome ${name}"
-                    echo "Secondstage : You enrolled to ${course}"
-                    
-                }
+            steps {
+                echo "executing pipeline for when example"
             }
         }
     }
+ }
