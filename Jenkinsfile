@@ -9,7 +9,7 @@ pipeline {
             }
 
         }
-
+           parallel {
         stage ('SONARSCANS') {
             steps {
                 echo "SONAR is executing"
@@ -30,4 +30,5 @@ pipeline {
             }
          }
     }
+}
 }
