@@ -1,7 +1,7 @@
 //class 31
 
 pipeline {
-    agent
+    agent any
 
     parameters {
         string(name: 'APPLICATION_NAME', description: 'Enter your application name', defaultValue: 'i27app')
