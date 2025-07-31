@@ -1,25 +1,33 @@
-//class 31
-
 pipeline {
     agent any
 
-    parameters {
-        string(name: 'APPLICATION_NAME', description: 'Enter your application name', defaultValue: 'i27app')
-        booleanParam(name: 'RUN_TESTS', description: 'Would you like torun tests', defaultValue: true)
-        choice(name: 'ENV', description: 'Which environment we are deploying?', choices: ['dev','test','prod'])
-        password(name: 'PASSWORD', description: 'Enter a password', defaultValue: 'SECRET')
-    }
-
     stages {
-        stage ('parameters example') {
+        stage ('build'){
             steps {
-
-                echo "My application name is : ${params.APPLICATION_NAME}"
-                echo "Are tests running ? ${params.RUN_TESTS}"
-                echo " WHich environment deployment is going on ${params.ENV}"
-                echo "what is the password ${params.PASSWORD}"
+                echo "building the application"
 
             }
+
         }
+
+        stage ('SONARSCANS') {
+            steps {
+                echo "SONAR is executing"
+                sleep 15
+            }
+        }
+       stage ('Fortify SCANS') {
+            steps {
+                echo "Fortify is executing"
+                sleep 15 
+    }
+}
+         stage ('Prisma SCANS') {
+            steps {
+                echo "Prisma is executing"
+                sleep 15 
+
+            }
+         }
     }
 }
