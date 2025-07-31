@@ -1,27 +1,24 @@
-//class 30
+//class 31
 
 pipeline {
-    agent any
+    agent
 
-    environment {
-        Proddeploy = 'Production'
+    parameters {
+        string(name: 'APPLICATION_NAME', description: 'Enter your application name', defaultValue: 'i27app')
+        booleanparam(name: 'RUN_TESTS', description: 'Would you like torun tests', defaultValue: true)
+        choice(name: 'ENV', description: 'Which environment we are deploying?', choices: ['dev','test','prod'])
+        password(name: 'PASSWORD', description: 'Enter a password', defaultValue: 'SECRET')
     }
 
     stages {
-        stage ('ProdDeploy')
-        {
-            when {
-                anyOf {
-
-                    //anyofbelow condition is satisfied it will pass 
-                    branch 'production' 
-                    environment name: 'Proddeploy', value: 'Production'
-                }
-            }
-
+        stage ('parameters example') {
             steps {
 
-                echo "************ Deploying to Production *************"
+                echo "My application name is : ${params.APPLICATION_NAME}"
+                echo "Are tests running ? ${params.RUN_TESTS}"
+                echo " WHich environment deployment is going on ${params.ENV}"
+                echo "what is the password ${params.PASSWORD}"
+
             }
         }
     }
