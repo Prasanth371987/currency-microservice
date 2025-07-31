@@ -9,6 +9,8 @@ pipeline {
             }
 
         }
+
+        stage('SCANS') {
            parallel {
         stage ('SONARSCANS') {
             steps {
@@ -30,5 +32,6 @@ pipeline {
             }
          }
     }
+}
 }
 }
