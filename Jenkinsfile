@@ -12,7 +12,7 @@ pipeline {
                 input {
                     message "Doing Prod Deployments"
                     ok 'Yes'
-                    submitters 'sivasre' //who want to approve for prod deployments
+                    submitter 'sivasre' //who want to approve for prod deployments
                 }
                 steps {
                 echo "Deploying to Prod Environment"
