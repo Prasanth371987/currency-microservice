@@ -23,6 +23,7 @@ pipeline {
             }
 
             stage ('Deploy to Prod environemt') {
+                steps {
 
                 options {
                     timeout (time:300, unit: 'SECONDS')
@@ -38,5 +39,6 @@ pipeline {
             }
     }
     
+}
 }
 }
