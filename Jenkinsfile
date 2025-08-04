@@ -2,7 +2,7 @@
 
 pipeline {
     agent any
-    {
+    
         stages {
             stage ('Deploy to Dev environemt') {
                 steps {
@@ -40,5 +40,5 @@ pipeline {
     }
     
 }
-}
-}
+    }
+
