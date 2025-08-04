@@ -5,6 +5,7 @@ pipeline {
     
         stages {    
             stage ('Deploy to Dev environemt') {
+                parallel {
                 steps {
                 echo "Deploying to Dev Environment"
             }
@@ -37,6 +38,7 @@ pipeline {
             }
     }
     
+}
 }
     
 
