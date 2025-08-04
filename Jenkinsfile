@@ -3,11 +3,8 @@
 pipeline {
     agent any
     
-        stages {
-            
-
-            stage ('Deploy to Prod environemt') {
-                steps {
+        stages {         
+           stage ('Deploy to Prod environemt') {              
 
                 options {
                     timeout (time:300, unit: 'SECONDS')
@@ -24,5 +21,5 @@ pipeline {
     }
     
 }
-    }
+    
 
