@@ -1,28 +1,40 @@
-//class 30
+//calss 32
 
 pipeline {
     agent any
-
-    environment {
-        Proddeploy = 'Production'
-    }
-
-    stages {
-        stage ('ProdDeploy')
-        {
-            when {
-                anyOf {
-
-                    //anyofbelow condition is satisfied it will pass 
-                    branch 'production' 
-                    environment name: 'Proddeploy', value: 'Production'
-                }
-            }
-
-            steps {
-
-                echo "************ Deploying to Production *************"
+    {
+        stages {
+            stage ('Deploy to Dev environemt') {
+                echo "Deploying to Dev Environment"
             }
         }
+        
+            stage ('Deploy to TST environemt') {
+                steps {
+                echo "Deploying to TST Environment"
+            }
+        }
+        
+            stage ('Deploy to REG environemt') {
+                steps {
+                echo "Deploying to REG Environment"
     }
+            }
+
+            stage ('Deploy to Prod environemt') {
+
+                options {
+                    timeout (time:300, unit: 'SECONDS')
+                }
+                input {
+                    message "Doing Prod Deployments"
+                    ok 'Yes'
+                    submitters 'oohadev' //who want to approve for prod deployments
+                }
+                steps {
+                echo "Deploying to Prod Environment"
+}
+            }
+    }
+    
 }
