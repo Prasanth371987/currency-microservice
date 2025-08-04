@@ -16,7 +16,7 @@ pipeline {
 
                 //code will trigger if the pipeline issuccess
 
-                echo "POST ==============Success block is triggered"
+                echo "POST ==============Success block is triggered "
 
                 failure {
 
