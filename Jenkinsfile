@@ -5,6 +5,7 @@ pipeline {
     {
         stages {
             stage ('Deploy to Dev environemt') {
+                steps {
                 echo "Deploying to Dev Environment"
             }
         }
@@ -29,7 +30,7 @@ pipeline {
                 input {
                     message "Doing Prod Deployments"
                     ok 'Yes'
-                    submitters 'oohadev' //who want to approve for prod deployments
+                    submitters 'sivasre' //who want to approve for prod deployments
                 }
                 steps {
                 echo "Deploying to Prod Environment"
@@ -37,4 +38,5 @@ pipeline {
             }
     }
     
+}
 }
