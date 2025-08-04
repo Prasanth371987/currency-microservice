@@ -3,9 +3,11 @@
 pipeline {
     agent any
     
-        stages {    
+        stages {   
+            stage('SCANS') {
+           parallel {
             stage ('Deploy to Dev environemt') {
-                parallel {
+                
                 steps {
                 echo "Deploying to Dev Environment"
             }
@@ -41,4 +43,5 @@ pipeline {
 }
 }
     
+}
 
