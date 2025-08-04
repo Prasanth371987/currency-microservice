@@ -4,44 +4,31 @@ pipeline {
     agent any
     
         stages {   
-            stage('SCANS') {
-           parallel {
-            stage ('Deploy to Dev environemt') {
-                
-                steps {
-                echo "Deploying to Dev Environment"
+            stage ('Build')
+            {
+                Steps {
+                    echo "Building the application"
+                }
             }
         }
-        
-            stage ('Deploy to TST environemt') {
-                steps {
-                echo "Deploying to TST Environment"
+        post {
+            success {
+
+                //code will trigger if the pipeline issuccess
+
+                echo "POST ==============Success block is triggered"
+
+                failure {
+
+                    //will trigger only if failure
+                    echo "POST ============== Failure block is triggered"
+
+                    always {
+
+                        //will trigger if failure/success
+                        echo "POST ============== Always block is triggered"
+                    }
+                }
             }
         }
-        
-            stage ('Deploy to REG environemt') {
-                steps {
-                echo "Deploying to REG Environment"
-    }
-            }     
-           stage ('Deploy to Prod environemt') {              
-
-                options {
-                    timeout (time:300, unit: 'SECONDS')
-                }
-                input {
-                    message "Doing Prod Deployments"
-                    ok 'Yes'
-                    submitter 'sivasre' //who want to approve for prod deployments
-                }
-                steps {
-                echo "Deploying to Prod Environment"
 }
-            }
-    }
-    
-}
-}
-    
-}
-
